@@ -1,0 +1,39 @@
+<head></head>
+<body>
+
+<h2>User info</h2>
+<table>
+  <tbody>
+    <tr>
+      <%= image_tag @user.get_profile_image(100,100) %>
+      <th>name</th>
+      <th><%= @user.name %></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+    </tr>
+  </tbody>
+</table>
+
+<div>
+  <h2>Users</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>image</th>
+        <th>name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @books.each do |book| %>
+      <div>
+        <%= link_to books_path(book.id) do %>
+        <% end %>
+      </div>
+    </tbody>
+  </table>
+</div>
+<% end %>
+
+
+</body>
