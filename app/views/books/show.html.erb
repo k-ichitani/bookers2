@@ -42,6 +42,8 @@
                 <%= link_to @user.profile_image, user_path(@user.id) %>
                 <%= link_to @book.title, book_path(@book.id) %>
                 <%= @book.body %>
+                <%= link_to "Edit", edit_book_path(@book.id) %>
+                <%= link_to "Destroy", destroy_book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？"　%>
               </td>
             </tr>
           </tbody>
