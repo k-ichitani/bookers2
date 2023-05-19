@@ -1,6 +1,7 @@
 <body>
 
   <main>
+    <div>
     <h2>User info</h2>
     <table>
       <tbody>
@@ -11,9 +12,11 @@
         </tr>
         <tr>
           <th>introduction</th>
+          <th><%= @user.introduction %></th>
         </tr>
       </tbody>
     </table>
+    </div>
 
     <div>
       <h2>New book</h2>
@@ -29,11 +32,11 @@
         <div>
           <%= f.submit 'Create Book' %>
         </div>
-        <% end %>
+      <% end %>
     </div>
 
 
-    <div></div>
+    <div>
         <h2>Book detail</h2>
         <table class="table">
           <tbody>
@@ -42,8 +45,10 @@
                 <%= link_to @user.profile_image, user_path(@user.id) %>
                 <%= link_to @book.title, book_path(@book.id) %>
                 <%= @book.body %>
-                <%= link_to "Edit", edit_book_path(@book.id) %>
-                <%= link_to "Destroy", destroy_book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？"　%>
+                <% if @book.user ==current_user %>
+                  <%= link_to "Edit", edit_book_path(@book.id) %>
+                  <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？"　%>
+                <% end %>
               </td>
             </tr>
           </tbody>

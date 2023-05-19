@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -12,6 +13,9 @@
 
   <body>
     <header>
+
+
+
       <% if user_signed_in? %>
         <li>
           <%= link_to "Home", root_path %>
@@ -40,6 +44,13 @@
         </li>
       <% end %>
     </header>
+    <main>
     <%= yield %>
+    </main>
+    <footer>
+      <div>
+        <p>CopyRignt Infratop.inc</p>
+      </div>
+    </footer>
   </body>
 </html>

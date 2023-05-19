@@ -11,6 +11,7 @@
         </tr>
         <tr>
           <th>introduction</th>
+          <th><%= @user.introduction %></th>
         </tr>
       </tbody>
     </table>
@@ -33,8 +34,8 @@
     </div>
 
 
-    <div></div>
-        <tbody>
+          <div>
+
           <h2>Books</h2>
           <table>
             <thead>
@@ -45,12 +46,14 @@
             </thead>
             <% @books.each do |book| %>
             <tbody>
-              <%= link_to @user.profile_image, user_path(@user.id) %>
-              <%= link_to book.title, book_path(book.id) %>
-              <%= book.body %>
+              <tr>
+                <th><%= link_to @user.get_profile_image(80,80), user_path(@user.id) %></th>
+                <th><%= link_to book.title, book_path(book.id) %></th>
+                <th><%= book.body %></th>
+              </tr>
             </tbody>
           </table>
-    </div>
+          </div>
     <% end %>
 
   </main>
