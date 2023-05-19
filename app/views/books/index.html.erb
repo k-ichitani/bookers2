@@ -15,6 +15,11 @@
         </tr>
       </tbody>
     </table>
+    <div>
+      <% if @user == current_user %>
+        <%= link_to edit_user_path(@books.id) %>
+      <% end %>
+    </div>
 
     <div>
       <h2>New book</h2>
