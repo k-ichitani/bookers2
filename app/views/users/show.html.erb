@@ -1,5 +1,12 @@
-<head></head>
 <body>
+<% if @newbook.errors.any? %>
+  <%= @newbook.errors.count %>errors prohibited this obj from being saved:
+  <ul>
+    <% @newbook.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <h2>User info</h2>
 <table>
@@ -17,7 +24,7 @@
 </table>
 <div>
   <% if @user == current_user %>
-    <%= link_to edit_user_registration_path do %>
+    <%= link_to edit_user_path(@user.id) do %>
       <i class="fas fa-user-cog"></i>
     <% end %>
   <% end %>

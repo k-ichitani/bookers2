@@ -1,4 +1,12 @@
 <body>
+<% if @newbook.errors.any? %>
+  <%= @newbook.errors.count %>errors prohibited this obj from being saved:
+  <ul>
+    <% @newbook.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <h2>User info</h2>
 <table>
@@ -16,10 +24,13 @@
 </table>
 <div>
   <% if @user == current_user %>
-    <%= link_to edit_user_registration_path do %>
+    <%= link_to edit_user_path(@user.id) do %>
       <i class="fas fa-user-cog"></i>
     <% end %>
+  <% else %>
+    <%= redirect_to user_path(@user.id) %>
   <% end %>
+
 </div>
 
 <div>
@@ -62,6 +73,7 @@
         <% @users.each do |user| %>
         <tr>
           <td><%= image_tag user.get_profile_image(80,80) %></td>
+          <td><%= user.name %></td>
           <td><%= link_to "Show", user_path(user.id) %></td>
         </tr>
         <% end %>
