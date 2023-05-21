@@ -50,16 +50,28 @@
               </li>
             <% else %>
               <li class="nav-item">
-                <%= link_to "Home", root_path, class: 'nav-link text-dark' %>
+                <%= link_to root_path, class: 'nav-link text-dark' do %>
+                <i class="fas fa-home"></i>
+                Home
+                <% end %>
               </li>
               <li class="nav-item">
-                <%= link_to "About", homes_about_path, class: 'nav-link text-dark' %>
+                <%= link_to homes_about_path, class: 'nav-link text-dark' do %>
+                <i class="fas fa-link"></i>
+                About
+                <% end %>
               </li>
               <li class="nav-item">
-                <%= link_to "Sign up", new_user_registration_path, class: 'nav-link text-dark' %>
+                <%= link_to new_user_registration_path, class: 'nav-link text-dark' do %>
+                <i class="fas fa-user-plus"></i>
+                Sign up
+                <% end %>
               </li>
               <li class="nav-item">
-                <%= link_to "Log in", new_user_session_path, class: 'nav-link text-dark' %>
+                <%= link_to new_user_session_path, class: 'nav-link text-dark' do %>
+                <i class="fas fa-sign-in-alt"></i>
+                Log in
+                <% end %>
               </li>
             <% end %>
             </ul>
