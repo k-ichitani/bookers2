@@ -1,3 +1,5 @@
-$('#book_comments').html("<%= j(render "book_comments/comment", book: @book) %>");
+$('#book-comments').html("<%= j(render "book_comments/comment", book: @book) %>");
 $('#comment_count').html("<%= @book.book_comments.count %>")
+
+<!--コメント後はboxを空にする-->
 $("textarea").val('');
