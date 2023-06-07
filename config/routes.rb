@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'home/about' => 'homes#about'
   resources :users, only: [:show, :edit, :index, :update] do
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' => 'relationships#followers', as: 'followers'
     get "search", to: "users#search"
   end
   resources :books do

@@ -6,6 +6,7 @@ class Book < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :destroy
   has_many :book_comments, dependent: :destroy
+  has_many :favorited_users, through: :favorites, source: :user
   
   # 投稿数の表示
   scope :created_today, -> { where(created_at: Time.zone.now.all_day) }
