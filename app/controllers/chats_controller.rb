@@ -7,24 +7,24 @@ class ChatsController < ApplicationController
     user_rooms = UserRoom.find_by(user_id: @user.id, room_id: rooms)
 
     if user_rooms.nil?
-      chat_room = Room.new
-      chat_room.save
-      UserRoom.create(user_id: @user.id, room_id: chat_room.id)
-      UserRoom.create(user_id: current_user.id, room_id: chat_room.id)
+      @room = Room.new
+      @room.save
+      UserRoom.create(user_id: @user.id, room_id: @room.id)
+      UserRoom.create(user_id: current_user.id, room_id: @room.id)
     else
-      chat_room = user_rooms.room
+      @room = user_rooms.room
     end
 
     @chats = @room.chats
-    @chat = Chat.new(room_id: chat_room.id)
+    @chat = Chat.new(room_id: @room.id)
   end
 
   def create
     @chat = current_user.chats.new(chat_params)
     @chat.save
     # redirect_to request.referer 非同期通信のため削除
-    chat_room = @chat.room
-    @chats = chat_room.chats
+    @room = @chat.room
+    @chats = @room.chats
   end
 
   private
