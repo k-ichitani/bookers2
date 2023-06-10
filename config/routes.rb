@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resource:favorite, only: [:create, :destroy]
     resources :book_comments, only: [:create, :destroy]
   end
+  resources :groups, only: [:new, :index, :show, :create, :edit, :update]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
