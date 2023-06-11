@@ -38,16 +38,14 @@
             <!--    <%= link_to 'Edit', edit_group_path(@group), class: "btn btn-sm btn-success" %>-->
             <!--  <% end %>-->
             <!--</td>-->
-            <td>
               <% if @group.is_owned_by?(current_user) %>
-                <%= link_to 'Edit', edit_group_path(@group), class: "btn btn-success" %>
-                <%= link_to 'Notion an Event', group_new_mail_path(@group), class: "btn btn-sm btn-info" %>
+                <td><%= link_to 'Edit', edit_group_path(@group), class: "btn btn-success" %></td>
+                <td><%= link_to 'Notion an Event', group_new_mail_path(@group), class: "btn btn-sm btn-info" %></td>
               <% elsif @group.includesUser?(current_user) %>
-                <%= link_to 'Leave this group', group_group_users_path(@group), method: :delete, class: "btn btn-sm btn-danger" %>
+                <td><%= link_to 'Leave this group', group_group_users_path(@group), method: :delete, class: "btn btn-sm btn-danger" %></td>
               <% else %>
-                <%= link_to 'Join this group', group_group_users_path(@group), method: :post, class: "btn btn-sm btn-success" %>
+                <td><%= link_to 'Join this group', group_group_users_path(@group), method: :post, class: "btn btn-sm btn-success" %></td>
               <% end %>
-            </td>
           </tr>
         </tbody>
       </table>
